@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Welcome {% endblock %}
+
+{%block dashboard %}
+
+<h1>Welcome to Dashboard, {{user.name}} !</h1>
+<a href="{% url 'core:index' %}"><button class="bg-green-300">Apply for loan</button></a>
+
+{%endblock%}

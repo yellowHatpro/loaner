@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Sign Up {% endblock %}
+
+{%block content %}
+<div>
+  <h1> Sign Up</h1>
+  <form method="post" action=".">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label>Username</label></br>
+      {{form.name}}
+    </div>
+
+
+    <div class="mb-3">
+      <label>Email</label></br>
+      {{form.email}}
+    </div>
+
+    <div class="mb-3">
+      <label>Aadhar Number</label></br>
+      {{form.aadhar_id}}
+    </div>
+
+    <div class="mb-3">
+      <label>Annual Income</label></br>
+      {{form.annual_income}}
+    </div>
+
+    <div class="mb-3">
+      <label>Password</label></br>
+      {{form.password1}}
+    </div>
+
+    <div class="mb-3">
+      <label>Repeat password</label></br>
+      {{form.password2}}
+    </div>
+
+    {% if form.errors or form.non_field_errors %}
+    <div>
+      {% for field in form %}
+      {% for error in field.errors %}
+      <p style="color: red">{{ error }}</p>
+      {% endfor %}
+      {% endfor %}
+      {{form.non_field_errors}}
+
+    </div>
+    {%endif%}
+    <button>Submit</button>
+  </form>
+</div>
+{% endblock %}
